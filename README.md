@@ -12,7 +12,7 @@ This project uses [Dark Sky](https://darksky.net/) API wrapped by [python-foreca
 
 After cloning this repository to your local machine, substitute the **API_KEY** in [config.py](src/config.py#L3) with the key retrieved from above.
 
-There are some commands you can use as indicated in [Makefile](Makefile), or simply type `make help`, it will show the Make commands that can be used.
+There are some commands you can use as indicated in [Makefile](Makefile#L17), or simply type `make help`, it will show the Make commands that can be used.
 
 More variables in [config.py](src/config.py):
 
