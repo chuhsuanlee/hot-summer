@@ -30,17 +30,17 @@ More variables in [config.py](src/config.py):
 
 ## Functions
 
-`download_historical_data()` fetches the historical daily data and saves a [csv file](src/reports/Berlin_report_sample.csv) in reports folder.
+[download_historical_data()](src/main.py#L15) fetches the historical daily data and saves a [csv file](src/reports/Berlin_report_sample.csv) in reports folder.
 
 For historical data, only one day per API call can be fetched, and that’s the reason why the amount of API calls should be set beforehand in [config.py](src/config.py). The process begins from yesterday, then one day before, and continues this way until it reaches the maximum of possible API calls.
 
-The record model table schema is specified in [model.py](src/model.py) and database is configured in [config.py](src/config.py). Related operations include `update_record()` in [tools.py](src/tools.py) and `update_process()` in [main.py](src/main.py).
+The record model table schema is specified in [model.py](src/model.py) and database is configured in [config.py](src/config.py). Related operations include [update_record()](src/tools.py#L27) and [update_process()](src/main.py#L73).
 
 Since there’s no real database server binded yet, this project uses the [csv file](src/reports/Berlin_report_sample.csv) as depicted above to retrieve the information.
 
-`daily_update()` is the function excluded from execution but implemented as a procedure that keeps this database automatically updated for a set of cities. It assumes that after `download_historical_data()`, data before yesterday are all downloaded, so only data of yesterday (when the date moves to the next day, there’s no data for the ‘new’ yesterday yet) and forecasted data of the following 7 days need to be fetched or updated. Thus, it uses the [Time Machine Request](https://darksky.net/dev/docs#time-machine-request) and [Forecast Request](https://darksky.net/dev/docs#forecast-request) separately.
+[daily_update()](src/main.py#L62) is the function excluded from execution but implemented as a procedure that keeps this database automatically updated for a set of cities. It assumes that after [download_historical_data()](src/main.py#L15), data before yesterday are all downloaded, so only data of yesterday (when the date moves to the next day, there’s no data for the ‘new’ yesterday yet) and forecasted data of the following 7 days need to be fetched or updated. Thus, it uses the [Time Machine Request](https://darksky.net/dev/docs#time-machine-request) and [Forecast Request](https://darksky.net/dev/docs#forecast-request) separately.
 
-`required_computation()` reads the [csv file](src/reports/Berlin_report_sample.csv) saved in `download_historical_data()`. It compares the maximum temperature of every single day in summer (June - August) between 2016-2018, and calculates the amount of hottest days in each year.
+[required_computation()](src/main.py#L100) reads the [csv file](src/reports/Berlin_report_sample.csv) saved in [download_historical_data()](src/main.py#L15). It compares the maximum temperature of every single day in summer (June - August) between 2016-2018, and calculates the amount of hottest days in each year.
 
 ## Sample output
 ```
