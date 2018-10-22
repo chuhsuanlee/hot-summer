@@ -1,0 +1,4 @@
+pandas==0.23.4
+PyMySQL==0.6.7
+python-forecastio==1.4.0
+SQLAlchemy==1.0.10

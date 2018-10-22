@@ -1,0 +1,9 @@
+# report file
+src/reports/
+
+# git
+.git
+.gitignore
+
+# python
+*.py[cod]
