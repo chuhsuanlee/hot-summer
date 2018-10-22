@@ -10,7 +10,7 @@ This project uses [Dark Sky](https://darksky.net/) API wrapped by [python-foreca
 
 ## Quick start
 
-After cloning this repository to your local machine, substitute the **API_KEY** in [config.py](src/config.py) with the key retrieved from above.
+After cloning this repository to your local machine, substitute the **API_KEY** in [config.py](src/config.py#L3) with the key retrieved from above.
 
 There are some commands you can use as indicated in [Makefile](Makefile), or simply type `make help`, it will show the Make commands that can be used.
 
@@ -32,9 +32,9 @@ More variables in [config.py](src/config.py):
 
 [download_historical_data()](src/main.py#L15) fetches the historical daily data and saves a [csv file](src/reports/Berlin_report_sample.csv) in reports folder.
 
-For historical data, only one day per API call can be fetched, and that’s the reason why the amount of API calls should be set beforehand in [config.py](src/config.py). The process begins from yesterday, then one day before, and continues this way until it reaches the maximum of possible API calls.
+For historical data, only one day per API call can be fetched, and that’s the reason why the amount of API calls should be set beforehand in [config.py](src/config.py#L4). The process begins from yesterday, then one day before, and continues this way until it reaches the maximum of possible API calls.
 
-The record model table schema is specified in [model.py](src/model.py) and database is configured in [config.py](src/config.py). Related operations include [update_record()](src/tools.py#L27) and [update_process()](src/main.py#L73).
+The record model table schema is specified in [model.py](src/model.py#L8) and database is configured in [config.py](src/config.py#L10). Related operations include [update_record()](src/tools.py#L27) and [update_process()](src/main.py#L73).
 
 Since there’s no real database server binded yet, this project uses the [csv file](src/reports/Berlin_report_sample.csv) as depicted above to retrieve the information.
 
