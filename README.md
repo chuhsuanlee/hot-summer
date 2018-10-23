@@ -34,7 +34,7 @@ More variables in [config.py](src/config.py):
 
 For historical data, only one day per API call can be fetched, and that’s the reason why the amount of API calls should be set beforehand in [config.py](src/config.py#L4). The process begins from yesterday, then one day before, and continues this way until it reaches the maximum of possible API calls.
 
-The record model table schema is specified in [model.py](src/model.py#L8) and database is configured in [config.py](src/config.py#L10). Related operations include [update_record()](src/tools.py#L27) and [update_process()](src/main.py#L73).
+The record model table schema is specified in [model.py](src/model.py#L8) and database is configured in [config.py](src/config.py#L11). Related operations include [update_record()](src/tools.py#L27) and [update_process()](src/main.py#L73).
 
 Since there’s no real database server binded yet, this project uses the [csv file](src/reports/Berlin_report_sample.csv) as depicted above to retrieve the information.
 
