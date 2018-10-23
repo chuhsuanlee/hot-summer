@@ -34,8 +34,8 @@ def download_historical_data():
                 max_temperature=daily_record.temperatureHigh,
                 min_temperature=daily_record.temperatureLow,
             )
-            session.add(record)
-            session.commit()
+            # session.add(record)
+            # session.commit()
 
             to_be_inserted = {
                 'city_id': [record.city_id],
@@ -145,5 +145,5 @@ def required_computation():
 
 if __name__ == "__main__":
     download_historical_data()
-    daily_update()
+    # daily_update()
     required_computation()
