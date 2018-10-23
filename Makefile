@@ -49,6 +49,7 @@ exec: build
 	$(eval CMD ?= bash)
 	$(DOCKER) run \
 		--rm -it ${FLAG} \
+		--network="host" \
 		--entrypoint $(CMD) \
 		$(IMAGE_REPO)
 
@@ -56,4 +57,5 @@ exec: build
 run: build
 	$(DOCKER) run \
 		--rm ${FLAG} \
+		--network="host" \
 		$(IMAGE_REPO)

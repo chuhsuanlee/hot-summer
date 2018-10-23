@@ -34,8 +34,8 @@ def download_historical_data():
                 max_temperature=daily_record.temperatureHigh,
                 min_temperature=daily_record.temperatureLow,
             )
-            # session.add(record)
-            # session.commit()
+            session.add(record)
+            session.commit()
 
             to_be_inserted = {
                 'city_id': [record.city_id],
@@ -74,7 +74,7 @@ def update_process(forecast_object, city_index):
     """Update the existed record or add new record."""
     daily_records = forecast_object.daily().data
     for each_record in daily_records:
-        tracking_day = datetime.utcfromtimestamp(each_record.time)
+        tracking_day = each_record.time
         record = DailyRecord(
             city_id=city_index,
             year=tracking_day.year,
@@ -145,5 +145,5 @@ def required_computation():
 
 if __name__ == "__main__":
     download_historical_data()
-    # daily_update()
+    daily_update()
     required_computation()
